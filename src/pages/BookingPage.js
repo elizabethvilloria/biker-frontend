@@ -1,5 +1,6 @@
 // src/pages/BookingPage.js
-import { useState } from 'react';
+import React, { useState } from 'react';
+import './BookingPage.css';
 
 function BookingPage() {
     const [name, setName] = useState('');
@@ -13,25 +14,43 @@ function BookingPage() {
     };
 
     return (
-        <div>
-            <h1>Book a Bike</h1>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Name:
-                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
-                </label>
-                <br />
-                <label>
-                    Email:
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                </label>
-                <br />
-                <label>
-                    Booking Date:
-                    <input type="date" value={date} onChange={(e) => setDate(e.target.value)} required />
-                </label>
-                <br />
-                <button type="submit">Confirm Booking</button>
+        <div className="booking-container">
+            <h1 className="booking-title">Book a Bike</h1>
+            <form onSubmit={handleSubmit} className="booking-form">
+                <div className="form-group">
+                    <label htmlFor="name" className="form-label">Name:</label>
+                    <input
+                        id="name"
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        required
+                        className="form-input"
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="email" className="form-label">Email:</label>
+                    <input
+                        id="email"
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                        className="form-input"
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="date" className="form-label">Booking Date:</label>
+                    <input
+                        id="date"
+                        type="date"
+                        value={date}
+                        onChange={(e) => setDate(e.target.value)}
+                        required
+                        className="form-input"
+                    />
+                </div>
+                <button type="submit" className="submit-button">Confirm Booking</button>
             </form>
         </div>
     );
